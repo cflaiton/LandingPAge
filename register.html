@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FormWizard_v4</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="colorlib.com">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+
+		<!-- DATE-PICKER -->
+		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body class="bg-dark">
+		<div class="wrapper">
+			<div class="image-holder">
+				<img src="images/Ingemasmelo.png" width="900px"  alt="">
+			</div>
+            <form class="formulario" id="formulario" action="AdminUsuario?action=register" method="post" onsubmit=" return validacion()">
+            	<div class="form-header">
+            		<img src="images/Logo_nombre.png" class="img-fluid" width="700px" alt="Promovit" title="Promovit" >
+            		<h3>Registro</h3>
+            	</div>
+            	<div id="wizard">
+            		<!-- SECTION 1 -->
+	                <h4></h4>
+	                <section>
+	                   <!-- Grupo entidad -->
+					   <div class="col-12 col-lg-6 " id="grupo_entidad">
+                        <label for="entidad" class="formulario_label">Empresa/Entidad</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control formulario_input_formulario" name="txtEntidad" id="entidad" autofocus required placeholder="Digite el nombre de la Empresa/Entidad" value="">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <!-- <p class="formulario_input_error mb-2">Mínimo 3 caracteres</p> -->
+                    	</div><br>
+
+	                    <!-- Grupo NIT -->
+                    <div class="col-12 col-lg-6" id="grupo_nit">
+                        <label for="nit" class="formulario_label">NIT</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control formulario_input_formulario" name="txtNIT" id="nit"  required placeholder="Ej: 82327456-8" value="">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <!-- <p class="formulario_input_error mb-2">N�mero de documento no v�lido</p> -->
+                    </div><br>
+	                     <!-- Grupo Direccion Empresa -->
+                    <div class="col-12 col-lg-6" id="grupo_dirempresa">
+                        <label for="dirempresa" class="formulario_label">Dirección Empresa</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control formulario_input_formulario" name="txtDireccionE" id="dirempresa" required placeholder="Digite la dirección de la empresa" value="">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <!-- <p class="formulario_input_error mb-2">Introduce una direcci�n correcta</p> -->
+                    </div><br>
+						<!-- Grupo Telefono Empresa -->
+						<div class="col-12 col-lg-6" id="grupo_telempresa">
+							<label for="telempresa" class="formulario_label">Telefono Empresa</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="text" class="form-control formulario_input_formulario" name="txtTelefonoE" id="telempresa" required placeholder="Digite el telefono de la empresa" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Minimo 7 digitos</p> -->
+						</div><br>
+						<label>¿Ya tienes una cuenta?</label><a href="login.html" class="colorlinea2"> Inicia sesión</a>	
+	                </section>
+	                
+					<!-- SECTION 2 -->
+	                <h4></h4>
+	                <section>
+						<!-- Grupo Nombre -->
+						<div class="col-12 col-lg-6" id="grupo_nombre">
+							<label for="nombre" class="formulario_label">Nombres</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="text" class="form-control formulario_input_formulario" name="txtNombre" id="nombre" required placeholder="Digite sus nombres" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Minimo 3 caracteres</p> -->
+						</div><br>
+	                    <!-- Grupo Apellidos -->
+                    <div class="col-12 col-lg-6" id="grupo_apellidos">
+                        <label for="apellidos" class="formulario_label">Apellidos</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control formulario_input_formulario" name="txtApellido" id="apellidos" required placeholder="Digite sus apellidos" value="">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <!-- <p class="formulario_input_error mb-2">Minimo 3 caracteres</p> -->
+                    </div><br>
+						<!-- Grupo Documentos -->
+						<div class="col-12 col-lg-6" id="grupo_documento">
+							<label for="documento" class="formulario_label">Documento</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="text" class="form-control formulario_input_formulario" name="txtCedula" id="documento" required placeholder="Digite su documento" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Solo se permite digitos, min 5 </p> -->
+						</div><br>
+						<!-- Grupo Direccion personal -->
+						<div class="col-12 col-lg-6" id="grupo_dirpersonal">
+							<label for="dirpersonal" class="formulario_label">Dirección Personal</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="text" class="form-control formulario_input_formulario" name="txtDireccion" id="dirpersonal" required placeholder="Digite su dirección" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Introduce una dirección correcta</p> -->
+						</div>
+	                </section>
+
+	                <!-- SECTION 3 -->
+	                <h4></h4>
+	                <section>
+						<!-- Grupo Telefono personal -->
+						<div class="col-12 col-lg-6" id="grupo_telpersonal">
+							<label for="telpersonal" class="formulario_label">Telefono Personal</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="text" class="form-control formulario_input_formulario" name="txtTelefono" id="telpersonal" required placeholder="Digite su telefono personal" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Solo digitos, min 10</p> -->
+						</div><br>
+
+						<!-- Grupo Correo -->
+						<div class="col-12 col-lg-6" id="grupo_correo">
+							<label for="correo" class="formulario_label">Email</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="email" class="form-control formulario_input_formulario" name="txtEmail" id="correo" required placeholder="correo@correo.com" value="">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">Formato de email inválido</p> -->
+						</div><br>
+
+						 <!-- Grupo Contrase�a -->
+						 <div class="col-12 col-lg-6" id="grupo_password1">
+							<label for="password1" class="formulario_label">Contraseñaa</label>
+							<div class="formulario_grupo_input mb-1">
+								<input type="password" class="form-control formulario_input_formulario" required name="txtPassword" id="password1">
+								<i class="formulario__validacion_estado"></i>
+							</div>
+							<!-- <p class="formulario_input_error mb-2">La contraseña tiene que ser de 4 a 12 dígitos</p> -->
+						</div><br>
+	                    <!-- Grupo Contrase�a2 -->
+                    <div class="col-12 col-lg-6" id="grupo_password2">
+                        <label for="password2" class="formulario_label">Repetir Contraseña</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="password" class="form-control formulario_input_formulario" required name="txtPassword2" id="password2">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <!-- <p class="formulario_input_error mb-2">Ambas contraseñas deben ser iguales</p> -->
+                    </div><br>
+	                    <div class="checkbox-circle" style="margin-bottom: 48px;">
+							<label>
+								<input type="checkbox" checked>He leído y acepto los términos y condiciones
+								<span class="checkmark"></span>
+							</label>
+						</div>
+	                </section>
+            	</div>
+            </form>
+		</div>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<!-- JQUERY STEP -->
+		<script src="js/jquery.steps.js"></script>
+
+		<!-- DATE-PICKER -->
+		<script src="vendor/date-picker/js/datepicker.js"></script>
+		<script src="vendor/date-picker/js/datepicker.en.js"></script>
+
+		<script src="js/main.js"></script>
+<!-- Template created and distributed by Colorlib -->
+</body>
+</html>
