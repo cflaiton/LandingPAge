@@ -1,0 +1,17 @@
+.enlace_desactivado {
+    pointer-events: none;
+    cursor: default;
+    color: gray;
+}
+
+.color_tabla{
+    background-color: #bdcf00;
+}
+
+.color_texto{
+    color:white;
+}
+.colorytam_texto{
+    color:white;
+    font-size: 15;
+}

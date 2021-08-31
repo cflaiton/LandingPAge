@@ -1,0 +1,70 @@
+.col-lg-7{
+    width: 50%;
+    background-image: url('../_img/img1.png');
+    background-size: cover;
+    height:100vh;
+}
+
+label{
+    display:inline-block;
+    width: 250px;
+    text-align: left;
+    padding: 1.5mm;
+    color: #fffffC;
+}
+
+input{
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+    padding: 4px;
+
+}
+
+.inform{
+
+    width: 300px;
+    margin-bottom: 2px;
+}
+
+#register-submit{
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #B9C90C;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+}
+
+h1{
+    color: #B9C90C;
+}
+
+h3{
+    color: #B9C90C;
+    margin: 20px 0;
+}
+
+
+.botones{
+    margin-top:30px;
+    display: flex;
+    direction: row;
+    align-content: left;
+
+}
+
+.btn_register{
+    margin-left: 20px;
+    background: #bdcf00;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    outline:  none;
+    padding: 7px;
+    width: 120px;
+    font-weight: 400;
+}
+
+.btn_register:hover{
+
+    background: #fff;
+}
