@@ -1,7 +1,7 @@
 @charset "UTF-8";
 :root {
-    --dark:#343A40;
-    --dark:#1e2126;
+    --dark:#111111;
+    --dark:#111111;
     /* --dark:#343A40; */
     --light:#ffffff;
     --breakpoint-xs: 0;
@@ -16,11 +16,11 @@
 }
 
 .btn-primary{
-    background-color: #1e2126;
+    background-color: #111111;
 }
 
 .btn-primary:hover{
-    background-color: #1e2126;
+    background-color: #111111;
 }
 
 .btn{
@@ -34,7 +34,7 @@
 
 .menuind:hover{
     background-color: #BDCF00;
-    border-radius: 27px;
+    /* border-radius: 0px;  Analisis profesora*/ 
 }
 
 body {
@@ -1824,7 +1824,7 @@ pre code {
 
 .table .thead-dark th {
     color: #fff;
-    background-color: #343a40;
+    background-color: #111111;
     border-color: #454d55;
 }
 .table .thead-light th {
@@ -2535,8 +2535,8 @@ textarea.form-control {
 
 .btn-dark {
     color: #fff;
-    background-color: #343a40;
-    border-color: #343a40;
+    background-color: #111111;
+    border-color: #111111;
 }
 .btn-dark:hover {
     color: #fff;
@@ -4660,7 +4660,7 @@ a.badge-light:focus, a.badge-light.focus {
 
 .badge-dark {
     color: #fff;
-    background-color: #343a40;
+    background-color: #111111;
 }
 a.badge-dark:hover, a.badge-dark:focus {
     color: #fff;
@@ -6106,7 +6106,7 @@ button.bg-light:focus {
 }
 
 .border-dark {
-    border-color: #343a40 !important;
+    border-color: #111111 !important;
 }
 
 .border-white {
@@ -9724,7 +9724,7 @@ a.text-light:hover, a.text-light:focus {
 }
 
 .text-dark {
-    color: #343a40 !important;
+    color: #111111 !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
@@ -10003,7 +10003,7 @@ body {
 }
 .sb-topnav .navbar-brand {
     width: 225px;
-    padding-left: 1rem;
+    padding-left: 2rem;
     padding-right: 1rem;
     margin: 0;
 }
@@ -10063,7 +10063,7 @@ body {
 
 
 .sb-sidenav-dark {
-    background-color: #212529;
+    background-color: #111111;
     color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
@@ -10088,7 +10088,7 @@ body {
     color: #fff;
 }
 .sb-sidenav-dark .sb-sidenav-footer {
-    background-color: #343a40;
+    background-color: #111111;
 }
 
 .sb-sidenav-light {

@@ -4,7 +4,7 @@
     padding: 2px;
     cursor: pointer;
     font-size: 15px;
-    color: #1e2126;
+    color: #111111;
     font-weight: 650;
 }
 
@@ -153,8 +153,8 @@ body{
 }
 
 :root{
-    --dark:#343A40;
-    --dark:#1e2126;
+    --dark:#111111;
+    --dark:#111111;
     /* --dark:#343A40; */
     --light:#ffffff;
 }
