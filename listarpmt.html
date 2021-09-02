@@ -1,0 +1,188 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> <!-- libreria para usar java -->
+
+<%@ include file="/_jsp/indexIngeniero.jsp" %>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link href="_css/styles.css" rel="stylesheet" />
+<link href="_css/estiloListar.css" rel="stylesheet" />
+<link rel="stylesheet" href="_css/estilosing.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Promovit</title>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script  charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+<script>
+    $.extend( true, $.fn.dataTable.defaults, {
+        "language": {
+            "decimal": ",",
+            "thousands": ".",
+            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoPostFix": "",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "loadingRecords": "Cargando...",
+            "lengthMenu": "Mostrar _MENU_ registros",
+            "paginate": {
+                "first": "Primero",
+                "last": "Último",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            },
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "searchPlaceholder": "Término de búsqueda",
+            "zeroRecords": "No se encontraron resultados",
+            "emptyTable": "Ningún dato disponible en esta tabla",
+            "aria": {
+                "sortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sortDescending": ": Activar para ordenar la columna de manera descendente"
+            },
+            //only works for built-in buttons, not for custom buttons
+            "buttons": {
+                "create": "Nuevo",
+                "edit": "Cambiar",
+                "remove": "Borrar",
+                "copy": "Copiar",
+                "csv": "fichero CSV",
+                "excel": "tabla Excel",
+                "pdf": "documento PDF",
+                "print": "Imprimir",
+                "colvis": "Visibilidad columnas",
+                "collection": "Colección",
+                "upload": "Seleccione fichero...."
+            },
+            "select": {
+                "rows": {
+                    _: '%d filas seleccionadas',
+                    0: 'clic fila para seleccionar',
+                    1: 'una fila seleccionada'
+                }
+            }
+        }
+    } );
+</script>
+<style>
+    .fakeimg {
+        height: 200px;
+        background: #aaa;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 card">
+            <h5 class="titulos card-body">Listado de PMT</h5>
+                <div class="table-wrapper">
+                    <div class="table-title">
+                    </div>
+                </div>
+            <table class="table table-hover display" id="table_id">
+                <thead>
+                <tr>
+                    <th class="color_texto">Id</th>
+                    <th class="color_texto">Documento Usuario</th>
+                    <th class="color_texto">Numero Radicado</th>
+                    <th class="color_texto">Id Localidad</th>
+                    <th class="color_texto">Estado</th>
+                    <th class="color_texto">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <c:forEach var="pmt" items="${lista}">
+                    <tr>
+                        <td><c:out value="${pmt.id}" /></td>
+                        <td><c:out value="${pmt.documento_users}" /></td>
+                        <td><c:out value="${pmt.numero_radicado}" /></td>
+                        <c:forEach var="localidad" items="${listaLocalidades}">
+                            <c:if test = "${localidad.id == pmt.id_localidad}">
+                                <td><c:out value="${localidad.nombre}" /></td>
+                            </c:if>
+                        </c:forEach>
+
+                        <c:forEach var="estado" items="${listaEstados}">
+                            <c:if test = "${estado.id == pmt. id_estado}">
+                                <td><c:out value="${estado.nombre}" /></td>
+                            </c:if>
+
+                        </c:forEach>
+
+                        <td>
+                            <a href="pmtServlet?action=Visualizar&id=<c:out value="${pmt.id}"/>" class="view" title="Visualizar" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                            <a href="pmtServlet?action=verEditarPmt&id=<c:out value="${pmt.id}"/>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+
+                        </td>
+                    </tr>
+                </c:forEach>
+
+                </tbody>
+            </table>
+    </div>
+
+
+        <div class="row">
+            <div class="col-sm-12"></div>
+        </div>
+    </div>
+
+        <script>
+            $(document).ready(function(){
+                $(".btn-group .btn").click(function(){
+                    var inputValue = $(this).find("input").val();
+                    if(inputValue != 'all'){
+                        var target = $('table tr[data-status="' + inputValue + '"]');
+                        $("table tbody tr").not(target).hide();
+                        target.fadeIn();
+                    } else {
+                        $("table tbody tr").fadeIn();
+                    }
+                });
+                // Changing the class of status label to support Bootstrap 4
+                var bs = $.fn.tooltip.Constructor.VERSION;
+                var str = bs.split(".");
+                if(str[0] == 4){
+                    $(".label").each(function(){
+                        var classStr = $(this).attr("class");
+                        var newClassStr = classStr.replace(/label/g, "badge");
+                        $(this).removeAttr("class").addClass(newClassStr);
+                    });
+                }
+            });
+        </script>

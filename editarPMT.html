@@ -1,0 +1,260 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link href="_css/styles.css" rel="stylesheet" />
+<link href="_css/estiloListar.css" rel="stylesheet" />
+<link rel="stylesheet" href="_css/estilosing.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Promovit</title>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+            <div class="col-md-10 card">
+                <form class="formulario row g-3"  id="formulario" action="pmtServlet?action=EditarPmt" method="post" >
+                    <h5 class="titulos card-body">Editar PMT</h5>
+                <input type="text" hidden name="id" value='<c:out value="${pmt.id}" />'/>
+                <input hidden name="numeroradicado" value='<c:out value="${pmt.numero_radicado}" />'/>
+
+                <!-- Grupo Nombre -->
+                <div class="col-12 col-lg-6" id="grupo_nombre">
+                    <label for="Entidad/Empresa" class="formulario_label">Entidad/Empresa</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <input id="Entidad/Empresa" placeholder="Entidad/Empresa" type="text"
+                                required="required" class="form-control" value='<c:out value="${pmt.entidadEmpresaPMT}" />'
+                                disabled/>
+                                <input hidden name="entidadEmpresa" value='<c:out value="${pmt.entidadEmpresaPMT}" />'/>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Grupo Cedula -->
+                <div class="col-12 col-lg-6" >
+                    <label for="Nit" class="formulario_label">Cedula</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-id-card"></i>
+                                    </div>
+                                </div>
+                                <input id="Nit" placeholder="Nit" type="text" class="form-control"
+                                value='<c:out value="${pmt.documento_users}" />' disabled/>
+                                <input hidden name="cedula" value='<c:out value="${pmt.documento_users}" />'/>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Grupo Correo -->
+                <div class="col-12 col-lg-6" >
+                    <label for="Nit" class="formulario_label">Correo</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <input placeholder="correo" type="text" class="form-control"
+                                value='<c:out value="${pmt.emailPMT}" />' disabled/>
+                                <input hidden name="correo" value='<c:out value="${pmt.emailPMT}" />'/>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Grupo Localidad -->
+                <div class="col-12 col-lg-6" >
+                    <label for="Nit" class="formulario_label">Localidad</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                </div>
+                                <input placeholder="localidad" type="text" class="form-control"
+                                <c:forEach var="localidad" items="${listaLocalidades}">
+                                <c:if test = "${localidad.id == pmt.id_localidad}">
+                                value='<c:out  value="${localidad.nombre}"/>'
+                                </c:if>
+                                </c:forEach>disabled/>
+                                <input hidden class="form-control" name="localidad" value='<c:out value="${pmt.id_localidad}" />'/>
+                            </div>
+                        </div>  
+                </div>
+
+                <!-- Grupo CIV -->
+                <div class="col-12 col-lg-6" id="grupo_civ">
+                    <label for="Nit" class="formulario_label">Civ</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                </div>
+                                <input placeholder="civ" type="text" class="form-control"
+                                value='<c:out value="${pmt.civ_pk}" />' disabled/>
+                            </div>
+                        </div>
+                        <input hidden name="civ" value='<c:out value="${pmt.civ_pk}" />'/>
+                </div>
+   
+                <!-- Grupo Contrato -->
+                <div class="col-12 col-lg-6" id="grupo_contrato">
+                    <label for="Nit" class="formulario_label">Contrato</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-file-signature"></i>
+                                    </div>
+                                </div>
+                                <input placeholder="contrato" type="text" class="form-control"
+                                value='<c:out value="${pmt.contrato}" />'disabled/>
+                            </div>
+                        </div>
+                        <input hidden name="contrato" value='<c:out value="${pmt.contrato}" />'/>
+                </div>
+
+                <!-- Grupo Descripción -->
+                <div class="col-12 col-lg-6" >
+                    <label for="Nit" class="formulario_label">Descripción</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-align-justify"></i>
+                                    </div>
+                                </div>
+                                <textarea id="descripcion" placeholder="descripcion" cols="40" rows="3"
+                                class="form-control" disabled required="required"><c:out value="${pmt.descripcion}" /></textarea>
+                                <input hidden name="descripcion" value='<c:out value="${pmt.descripcion}" />'/>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Grupo Estado -->
+                <div class="col-12 col-lg-6" >
+                    <label for="estado" class="formulario_label">Estado</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fa fa-align-justify"></i>
+                                    </div>
+                                </div>
+                                <select name="estado" class="form-select">
+                                <c:forEach var="estado" items="${listaEstados}">
+                                <c:choose>
+                                <c:when test = "${estado.id == pmt.id_estado}">
+                                <option value='<c:out value="${estado.id}" />' selected><c:out value="${estado.nombre}"/></option>
+                                </c:when >
+                                <c:otherwise>
+                                <option value='<c:out value="${estado.id}" />'><c:out value="${estado.nombre}"/></option>
+                                </c:otherwise>
+                                </c:choose>
+                                </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- Grupo Archivo -->
+                <div class="col-12 col-lg-6" >
+                    <label for="estado" class="formulario_label">Archivo</label>
+                        <div class="formulario_grupo_input mb-1">   
+                            <div class="">
+                                <table>
+                                    <tr><td>
+                                        <a href="#"  data-toggle="modal" data-target="#exampleModalCenter">
+                                            <img src="_img/imgPDF.png" style="height: 50px;" alt="">
+                                        </a>
+                                    </td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <button type="button" class="close btnModalClose" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <div class="modal-body">
+                                    <iframe src="<c:out value='${pmt.archivo}'/>" frameborder="0"></iframe>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                <div class="row p-3">
+                    <div class="col-md-2 p-2">
+                        <a href="pmtServlet?action=listarPMT" class="btn-ing color-btn-ing" style="background: #1e2126; color:white; text-decoration: none " role="button" aria-pressed="true">Volver</a>
+                    </div>
+                    <div class="col-md-10 formulario_btn_enviar-ing p-2">
+                        <button class="btn-ing color-btn-ing w-50" style="background: #BDCF00; color:white;" name="action" value="add">Enviar</button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+        <div class="col-sm-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12"></div>
+    </div>
+</div>
+
+
+<%
+    if (request.getAttribute("flag")!=null){
+        int prueba =  (Integer)request.getAttribute("flag");
+        if ( prueba == 1){
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Operación exitosa!', 'PMT actualizado de forma correcta!.', 'success')</script>");
+        }else if( prueba == 0){
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Error!', 'Ha ocurrido un error, PMT no actualizado ', 'error')</script>");
+
+        }
+    }
+%>
+
+<script type="text/javascript" src="_js/editarPMT.js"></script>

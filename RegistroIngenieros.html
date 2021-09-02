@@ -1,0 +1,182 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="_css/estilosing.css">
+<link href="_css/styles.css" rel="stylesheet" />
+<link href="_css/estiloListar.css" rel="stylesheet" />
+
+<title>Promovit</title>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+<%
+    if (request.getAttribute("flag")!=null){
+        int prueba =  (Integer)request.getAttribute("flag");
+        if ( prueba == 1){
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Operación exitosa!', 'Usuario registrado de forma correcta!.', 'success')</script>");
+        }else if( prueba == 3){
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Error!', 'Ya existe un usuario con el correo ingresado.', 'error')</script>");
+        }
+    }
+%>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 card">
+            <form class="formulario" id="formulario" action="AdminUsuario?action=RegistroIng" method="post" onsubmit=" return validacion()">
+                <div class="row">
+
+                    <h5 class="titulos card-body">Registro Ingeniero</h5>
+                    <!-- Grupo Nombre -->
+                
+                    <div class="col-12 col-lg-6" id="grupo_nombre">
+                        <label for="nombre" class="formulario_label">Nombres</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control-ing" name="txtNombre" id="nombre" required placeholder="Ingresa tus nombres">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Minimo 3 caracteres</p>
+                    </div>
+
+                    <!-- Grupo Apellidos -->
+                    <div class="col-12 col-lg-6" id="grupo_apellidos">
+                        <label for="apellidos" class="formulario_label">Apellidos</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control-ing" name="txtApellido" id="apellidos" required placeholder="Ingresa tus apellidos">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Minimo 3 caracteres</p>
+                    </div>
+
+                       <!-- Grupo Documentos -->
+                       <div class="col-12 col-lg-6" id="grupo_documento">
+                        <label for="documento" class="formulario_label">Documento</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control-ing" name="txtCedula" id="documento" required placeholder="Ingresa tu documento">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Solo se permite digitos, min 5 </p>
+                    </div>
+
+                     <!-- Grupo Telefono personal -->
+                     <div class="col-12 col-lg-6" id="grupo_telpersonal">
+                        <label for="telpersonal" class="formulario_label">Telefono</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control-ing" name="txtTelefono" id="telpersonal" required placeholder="Ingresé su telefono personal">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Solo digitos, min 10</p>
+                    </div>                  
+
+                    <!-- Grupo Direccion personal -->
+                    <div class="col-12 col-lg-6" id="grupo_dirpersonal">
+                        <label for="dirpersonal" class="formulario_label">Dirección</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="text" class="form-control-ing" name="txtDireccion" id="dirpersonal" required placeholder="Ingresé su dirección">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Introduce una dirección correcta</p>
+                    </div>
+
+                    <!-- Grupo localidades -->
+
+                    <div class="col-12 col-lg-6">
+                        <label class="formulario_label">Localidad</label>
+                        <select class="form-select-ing" id="" name="txtlocalidad"required>
+                            <option >Selecciónar</option>
+                            <option value="1">1 -  Usaquén</option>
+                            <option value="2">2 -  Chapinero</option>
+                            <option value="3">3 -  Santa Fe</option>
+                            <option value="4">4 -  San Cristóbal</option>
+                            <option value="5">5 -  Usme</option>
+                            <option value="6">6 -  Tunjuelito</option>
+                            <option value="7">7 -  Bosa</option>
+                            <option value="8">8 -  Kennedy</option>
+                            <option value="9">9 -  Fontibón</option>
+                            <option value="10">10 - Engativá</option>
+                            <option value="11">11 - Suba</option>
+                            <option value="12">12 - Barrios Unidos</option>
+                            <option value="13">13 - Teusaquillo</option>
+                            <option value="14">14 - Los Mártires</option>
+                            <option value="15">15 - Antonio Nariño</option>
+                            <option value="16">16 - Puente Aranda</option>
+                            <option value="17">17 - La Candelaria</option>
+                            <option value="18">18 - Rafael Uribe Uribe</option>
+                            <option value="19">19 - Ciudad Bolívar</option>
+                            <option value="20">20 - Sumapaz</option>
+                        </select>
+                    </div>
+
+                     <!-- Grupo Correo -->
+                     <div class="col-12 col-lg-6" id="grupo_correo">
+                        <label for="correo" class="formulario_label">Email</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="email" class="form-control-ing" name="txtEmail" id="correo" required placeholder="correo@correo.com">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Formato de email inválido</p>
+                    </div>
+
+                    <!-- Grupo Contraseña -->
+                    <div class="col-12 col-lg-6" id="grupo_password1">
+                        <label for="password1" class="formulario_label">Contraseña</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="password" class="form-control-ing" required name="txtPassword" id="password1">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">La contraseña tiene que ser de 4 a 12 dígitos</p>
+                    </div>
+
+                    <!-- Grupo Contraseña2 -->
+                    <div class="col-12 col-lg-6" id="grupo_password2">
+                        <label for="password2" class="formulario_label">Repetir Contraseña</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <input type="password" class="form-control-ing" required name="txtPassword2" id="password2">
+                            <i class="formulario__validacion_estado"></i>
+                        </div>
+                        <p class="formulario_input_error">Ambas contraseñas deben ser iguales</p>
+                    </div>
+<br><br>
+
+
+                    <div class="formulario_btn_enviar-ing p-2">
+                        <button type="submit" name="btn_register" id="register-submit" value="Guardar" tabindex="4" class="btn-ing color-btn-ing w-50">Registrar</button>
+
+                    </div>
+
+            </form>
+
+        </div>
+        </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="_js/formularioing.js"></script>

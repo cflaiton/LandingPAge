@@ -1,0 +1,206 @@
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<link href="_css/styles.css" rel="stylesheet" />
+<link href="_css/estiloListar.css" rel="stylesheet" />
+<link rel="stylesheet" href="_css/estilosing.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<title>Promovit</title>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+        <div class="col-sm-12" center><h1></h1></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10  card">
+            <form class="formulario row g-3" id="formulario" action="CustomerServlet" method="post" enctype="multipart/form-data">
+
+
+                    <h5 class="titulos p-2">Radicar PMT</h5>
+                    <!-- Grupo Nombre -->
+                    <div class="col-12 col-lg-6" id="grupo_nombre">
+                        <label for="Entidad/Empresa" class="formulario_label">Entidad/Empresa</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <input id="Entidad/Empresa" placeholder="Entidad/Empresa" type="text"
+                                       required="required" class="form-control-ing" value='<c:out value="${usuario.entidad}" />'
+                                       disabled/>
+                                <input hidden name="entidadEmrpesa" value='<c:out value="${usuario.entidad}" />'/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo Cedula -->
+                    <div class="col-12 col-lg-6" >
+                        <label for="Nit" class="formulario_label">Cedula</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-id-card"></i>
+                                    </div>
+                                </div>
+                                <input id="Nit" placeholder="Nit" type="text" class="form-control-ing""
+                                       value='<c:out value="${usuario.documento}" />' disabled/>
+                                <input hidden name="cedula" value='<c:out value="${usuario.documento}" />'/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo Correo -->
+                    <div class="col-12 col-lg-6" >
+                        <label for="Nit" class="formulario_label">Correo</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                </div>
+                                <input placeholder="correo" type="text" class="form-control-ing""
+                                       value='<c:out value="${usuario.email}" />' disabled/>
+                                <input hidden name="correo" value='<c:out value="${usuario.email}" />'/>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grupo localidades -->
+
+                    <div class="col-12 col-lg-6">
+                        
+                        <label class="formulario_label">Localidad</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="far fa-building"></i>
+                            </div>
+                        <select class="form-select-ing" id="" name="localidad"required>
+                            <option >Selecciónar</option>
+                            <option value="1">1 -  Usaquén</option>
+                            <option value="2">2 -  Chapinero</option>
+                            <option value="3">3 -  Santa Fe</option>
+                            <option value="4">4 -  San Cristóbal</option>
+                            <option value="5">5 -  Usme</option>
+                            <option value="6">6 -  Tunjuelito</option>
+                            <option value="7">7 -  Bosa</option>
+                            <option value="8">8 -  Kennedy</option>
+                            <option value="9">9 -  Fontibón</option>
+                            <option value="10">10 - Engativá</option>
+                            <option value="11">11 - Suba</option>
+                            <option value="12">12 - Barrios Unidos</option>
+                            <option value="13">13 - Teusaquillo</option>
+                            <option value="14">14 - Los Mártires</option>
+                            <option value="15">15 - Antonio Nariño</option>
+                            <option value="16">16 - Puente Aranda</option>
+                            <option value="17">17 - La Candelaria</option>
+                            <option value="18">18 - Rafael Uribe Uribe</option>
+                            <option value="19">19 - Ciudad Bolívar</option>
+                            <option value="20">20 - Sumapaz</option>
+                        </select>
+                    </div>
+                    </div>
+
+
+                    <!-- Grupo CIV -->
+                    <div class="col-12 col-lg-6" id="grupo_civ">
+                        <label for="Nit" class="formulario_label">Civ</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="fas fa-road"></i>
+                                    </div>
+                                </div>
+                                    <input name="civ" id="civ"  placeholder="civ" type="text" class="form-control-ing" required>
+                                    <i class="formulario__validacion_estado"></i>
+                            </div>
+                            <p class="formulario_input_error">Solo digitos, Min 7</p>
+                        </div>
+                    </div>
+
+                    <!-- Grupo Contrato -->
+                    <div class="col-12 col-lg-6" id="grupo_contrato">
+                        <label for="Nit" class="formulario_label">Contrato</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-file-signature"></i>
+                                        </div>
+                                    </div>
+                                    <input name="contrato" id="contrato"  placeholder="civ" type="text" class="form-control-ing" required>
+                                    <i class="formulario__validacion_estado"></i>
+                            </div>
+                        </div>
+                        <p class="formulario_input_error">Solo se permiten digitos</p>
+                    </div>
+
+
+                    <!-- Grupo Descripción -->
+                    <div class="col-12 col-lg-6" id="grupo_descripcion">
+                        <label for="Nit" class="formulario_label">Descripción</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-align-justify"></i>
+                                        </div>
+                                    </div>
+                                    <textarea id="descripcion" placeholder="descripcion" name="descripcion" cols="40" rows="3" class="form-control-ing" required="required"></textarea>
+                                    <i class="formulario__validacion_estado"></i>
+                            </div>
+                        </div>
+                        <p class="formulario_input_error">Minimo 10 caracteres, maximo 150</p>
+                    </div>
+
+                    <!-- Grupo Archivo -->
+                    <div class="col-12 col-lg-6">
+                        <label for="nit" class="formulario_label">Archivo</label>
+                        <div class="formulario_grupo_input mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="far fa-file-pdf"></i>
+                                    </div>
+                                </div>
+                                    <input name="file" placeholder="" type="file" required="required" class="form-control-ing">
+                            </div>
+                        </div>
+                    </div><br>
+
+                    <div class="formulario_btn_enviar-ing p-2">
+                        <button class="btn-ing color-btn-ing w-50" name="action" value="add">Enviar</button>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="_js/registroPMT.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

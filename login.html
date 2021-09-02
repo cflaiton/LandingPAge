@@ -1,65 +1,154 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Inicio de sesión</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="author" content="colorlib.com">
+<head>
+    <meta charset="utf-8">
+    <title>Inicio de sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
 
-		<!-- MATERIAL DESIGN ICONIC FONT -->
-		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 
-		<!-- DATE-PICKER -->
-		<link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="vendor/date-picker/css/datepicker.min.css">
 
-		<!-- STYLE CSS -->
-		<link rel="stylesheet" href="css/stylelogin.css">
-		<link rel="stylesheet" href="css/estilos.css">
-	</head>
-	<body class="bg-dark">
-		<div class="wrapper">
-			<div class="image-holder">
-				<img src="images/Ingemasmelo.png" width="900px"  alt="">
-			</div>
-            <form action="" method="post" class="formulario" id="formulario">
-            	<div class="form-header">
-            		<img src="images/LogoB.png" class="img-fluid" width="450px" alt="Promovit" title="Promovit" >
-            		<h3>Inicio de sesión</h3>
-            	</div>
-            	<div id="wizard">
-            		<!-- SECTION 1 -->
-	                <section>
-	                    <div class="mb-4" id="grupo_correo">
-                            <label for="correo" class="formulario_label">Correo</label>
-                            <div class="formulario_grupo_input mb-1">
-                                <input type="text" class="form-control formulario_input_login" name="correo" id="correo" placeholder="correo@correo.com">
-                                <i class="formulario__validacion_estado"></i>
-                            </div>
-                            <p class="formulario_input_error mb-2">Formato de email inválido</p>
-                        </div>
-						<br>
-	                    <!-- Grupo password -->
-                        <div class="mb-4" id="grupo_password1">
-                            <label for="password1" class="formulario_label">Contraseña</label>
-                            <div class="formulario_grupo_input mb-1">
-                                <input type="password" class="form-control formulario_input_login" name="clave" id="password1">
-                                <i class="formulario__validacion_estado"></i>
-                            </div>
-                            <p class="formulario_input_error mb-2">La contraseña tiene que ser de 4 a 12 dígitos</p>
-							<br>
-                            <!-- <a onclick="toogleLogin()"; id="emailHelp" class="colorlinea2">¿Has olvidado tu contraseña?</a> -->
-							<a href="" class="colorlinea2">¿Has olvidado tu contraseña?</a>
-                        </div>
-						<label>¿Todavia no tienes una cuenta?</label><a href="register.html" class="colorlinea2"> Crea una ahora</a>	
-	                </section><br>
-					<div><a href="welcomeEntidad.html" class="colorlinea2">
-					<input type="button" class="btn color-btn w-100" value="Ingresar" name="btnIngresar"><br>
-				</a>
-				</div>
-            </form>
-		</div>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/stylelogin.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-dark">
+<div class="wrapper">
+    <div class="image-holder">
+        <img src="images/Ingemasmelo.png" width="900px"  alt="">
+    </div>
+    <form action="AdminUsuario?action=ingresar" method="post" class="formulario" id="formulario">
+        <div class="form-header">
+            <img src="images/LogoB.png" class="img-fluid" width="450px" alt="Promovit" title="Promovit" >
+            <h3>Inicio de sesión</h3>
+        </div>
+        <div id="wizard">
+            <!-- SECTION 1 -->
+            <section>
+                <div class="mb-4" id="grupo_correo">
+                    <label for="correo" class="formulario_label">Correo electronico</label>
+                    <div class="formulario_grupo_input mb-1">
+                        <input type="text" class="form-control formulario_input_login" name="correo" id="correo" placeholder="correo@correo.com">
+                        <i class="formulario__validacion_estado"></i>
+                    </div>
+                    <p class="formulario_input_error mb-2">Formato de email inválido</p>
+                </div>
+                <br>
+                <!-- Grupo password -->
+                <div class="mb-4" id="grupo_password1">
+                    <label for="password1" class="formulario_label">Contraseña</label>
+                    <div class="formulario_grupo_input mb-1">
+                        <input type="password" class="form-control formulario_input_login" name="clave" id="password1">
+                        <i class="formulario__validacion_estado"></i>
+                    </div>
+                    <p class="formulario_input_error mb-2">La contraseña tiene que ser de 4 a 12 dígitos</p>
+                    <br>
+                    <a a onclick="toogleLogin()"; id="emailHelp" class="colorlinea2 form-text text-muted text-decoration-none link-recuperar">¿Has olvidado tu contraseña?</a>
+                </div>
+                <label>¿Todavia no tienes una cuenta?</label><a href="AdminUsuario?action=nuevo" class="colorlinea2"> Crea una ahora</a>
+            </section><br>
+            <div><a href="welcomeEntidad.html" class="colorlinea2">
+                <input type="submit" class="btn color-btn w-100" value="Ingresar" name="btnIngresar"><br>
+            </a>
+            </div>
+    </form>
+</div>
+<div class="form-recuperar-contra" id="login-recovery-id" style="display: none;">
+    <div class="d-flex justify-content-center p-2">
+        <h2 class="font-weight-bold titulos ">Recuperar contraseña</h2>
+    </div>
+    <form action="AdminUsuario?action=correoRecuperar" method="post">
+        <div class="mb-4" id="grupo_correo">
+            <label for="correo" class="formulario_label">Correo electronico</label>
+            <div class="formulario_grupo_input mb-1">
+                <input type="text" class="form-control formulario_input_login" name="correo" id="correo" placeholder="correo@correo.com">
+                <i class="formulario__validacion_estado"></i>
+            </div>
+            <p class="formulario_input_error mb-2">Formato de email inválido</p>
+        </div>
+            <button type="submit" class="btn btn-success color-btn w-100">Enviar correo</button>
+        </div>
+    </form>
+    <a onclick="toogleLogin()"; id="emailHelp" class="form-text text-muted text-decoration-none link-recuperar">Regresar a página anterior</a>
+</div>
 
-		<script src="js/formulario_login.js"></script>
-<!-- Template created and distributed by Colorlib -->
+
+
+</div>
+</div>
+</div>
+</section>
+<!-- </main> -->
+<!-- Optional JavaScript; choose one of the two! -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<script src="_js/formulario_login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+<script>
+    function toogleLogin(){
+        var login_recover = document.getElementById('login-recovery-id');
+        var login = document.getElementById('login-id');
+        if (login_recover.style.display == 'inline'){
+            login_recover.style.display = 'none';
+            login.style.display = 'inline';
+        }else{
+            login_recover.style.display = 'inline';
+            login.style.display = 'none';
+        }
+    }
+</script>
+<%
+    if (request.getAttribute("flag")!=null){
+        int prueba =  (Integer)request.getAttribute("flag");
+        if ( prueba == 1){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Error!', 'Los datos ingresados son incorrectos.', 'error')</script>");
+        }else if( prueba == 2){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Error!', 'Usuario no autorizado.', 'error')</script>");
+        }else if( prueba == 3){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">" +
+                    "toogleLogin();\n" +
+                    "Swal.fire('Error!', 'El correo ingresado no existe.', 'error')</script>");
+        }else if( prueba == 4){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">" +
+                    "toogleLogin();\n" +
+                    "Swal.fire('Operación exitosa!!', 'Se ha enviado un correo para restablecer contraseña.', 'success')</script>");
+        }else if( prueba == 5){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">" +
+                    "toogleLogin();\n" +
+                    "Swal.fire('Error!', 'Ha ocurrido un error, intente nuevamente.', 'error')</script>");
+        }else if( prueba == 6){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">" +
+                    "toogleLogin();\n" +
+                    "Swal.fire('Error!', 'El codigo enviado no es valido.', 'error')</script>");
+        }else if( prueba == 7){
+            prueba = 0;
+            request.setAttribute("flag",0);
+            out.println("<script type=\"text/javascript\">Swal.fire('Operación exitosa!!', 'Se ha actualizado contraseña.', 'success')</script>");
+        }
+    }
+%>
+
 </body>
 </html>
